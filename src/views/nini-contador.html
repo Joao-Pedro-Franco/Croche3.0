@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crochê Moxaum</title>
+        <link href = "\styles\nini-menu.css" rel = "stylesheet">
+        <link href = "\styles\nini-contador.css" rel = "stylesheet">
+        
+    </head>
+
+    <body>
+        <header>
+            <a href="#" id='a-nav'><img src="\assets\burger.png"></a>
+            <a href='#' id='a-logo'>
+                <img src='\assets\logo.png'>
+                <p>Lojinha da Nickk</p>
+            </a>
+            
+        </header>
+
+        <main id="main">
+            <nav id='nav-bar'>
+                <ul>
+                    <hr />
+                    <a href="/" id='nav-menu'><li>Menu</li></a>
+                    <a href="/nini-contador" id='nav-contador'><li>Contador</li></a>
+                    <a href="/nini-encomendas" id='nav-encomendas'><li>Encomendas</li></a>
+                    <hr />
+                </ul>
+            </nav>
+            <div id='content'>
+                <div id='contador'>
+                    <div id = "relogio">
+                        <p id = 'horario'></p>
+                    </div>
+                    <div id='interface'>
+                        <div id = 'numero'>
+                            <p id = 'num'></p>
+                            <p id = 'horarioHist'></p>
+                        </div>
+                        <div id ='botoes'>
+                            <input type = 'button' value ='+' onclick ='add()'>
+                            <input type = 'button' value ='Reset' onclick ='reset()'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+
+        <script src ='\scripts\nini-menu.js'></script>
+        <script src ='\scripts\nini-contador.js'></script>
+    </body>
+</html>

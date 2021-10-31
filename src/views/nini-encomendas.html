@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crochê Moxaum</title>
+        <link href = "\styles\nini-menu.css" rel = "stylesheet">
+        <link href="\styles\nini-encomendas.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <a href="#" id='a-nav'><img src="\assets\burger.png"></a>
+            <a href='#' id='a-logo'>
+                <img src='\assets\logo.png'>
+                <p>Lojinha da Nickk</p>
+            </a>
+            
+        </header>
+
+        <main id="main">
+            <nav id='nav-bar'>
+                <ul>
+                    <hr />
+                    <a href="/" id='nav-menu'><li>Menu</li></a>
+                    <a href="/nini-contador" id='nav-contador'><li>Contador</li></a>
+                    <a href="/nini-encomendas" id='nav-encomendas'><li>Encomendas</li></a>
+                    <hr />
+                </ul>
+            </nav>
+            <div id='content'>
+                <div id='encomendas'>
+                    <p id='titulo'>Encomendas</p>
+                    <hr />
+                    <div id='caixas'>
+                        <form id='add' action='/anha' method='POST'>
+                            <div class ='form-box'>
+                                <p class='titulo'>Nome: </p>
+                                <input id='nome' type="text" name ='nome' required> 
+                            </div>
+                            <div class ='form-box'>
+                                <p class='titulo'>Amigurumi: </p>
+                                <input id='amigurumi' type="text" name='amigurumi' required>
+                            </div>
+                            <div class ='form-box'>
+                                <p class='titulo'>Preço: </p>
+                                <input id='preco' type="text" name='preco' required>
+                            </div>
+                            <div class ='form-box'>
+                                <p class='titulo'>Data: </p>
+                                <input id='data' type="text" name='data' required>
+                            </div>
+                            <input type="file" name="" id="">
+                            <button type='submit'><img src="\assets\+.png" alt=""></button>
+                        </form>
+                        
+                        {% for item in historico | reverse %}
+                            <div id='historico'>
+                                <p class ='titulo'>Nome:</p>
+                                <p>{{item.nome}}</p>
+                                <p class ='titulo'>Amigurumi:</p>
+                                <p>{{item.amigurumi}}</p>
+                                <p class ='titulo'>Preço:</p>
+                                <p>{{item.preco}}</p>
+                                <p class ='titulo'>Data:</p>
+                                <p>{{item.data}}</p>
+                                <form action = '/anhanha' method='POST'>
+                                    <button name='id' type='submit' value='{{item.id}}'><img src="\assets\x2.png"></button>
+                                </form>
+                            </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <script src ='\scripts\nini-encomendas.js'></script>
+        <script src ='\scripts\nini-menu.js'></script>
+    </body>
+</html>
