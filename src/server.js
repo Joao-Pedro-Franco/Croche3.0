@@ -54,7 +54,7 @@ server.get("/", (req, res) => {
             return b[1] - a[1];
         });
         // const unicornio = rows.filter((row) => (row.amigurumi === 'Unicórnio'))
-        res.render("nini-menu.html", {menu_list: menu_list, unicornio})
+        res.render("nini-menu.html", {menu_list: menu_list})
     })
 })
 
