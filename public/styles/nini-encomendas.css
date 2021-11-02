@@ -65,7 +65,7 @@
     color:rgb(105, 105, 105);
     font-weight: 600;
 }
-#encomendas #caixas #add input:focus, textarea:focus, select:focus{
+#encomendas #caixas #add input:focus{
     outline:none;
 }
 #encomendas #caixas button{
@@ -75,20 +75,18 @@
     border:none;
     cursor: pointer;
 }
+#encomendas #caixas button img{
+    height: 26px;
+    transition: 200ms;
+}
 #encomendas #caixas p{
     font-weight: 600;
     color:white;
     font-size:13pt;
 }
-#encomendas #caixas button img{
-    height: 26px;
-    transition: 200ms;
-}
 #encomendas #caixas button img:hover{
     height:32px;
 }
-
-
 
 #encomendas #caixas #historico{
     display: flex;

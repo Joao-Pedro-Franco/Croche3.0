@@ -45,19 +45,55 @@ function menu_display(rows){
 
 
 server.get("/", (req, res) => {
-    db.all(`SELECT * FROM historico`, function(err, rows){
+    db.all(`SELECT * FROM amigurumis`, function(err, rows){
         if (err){
             return console.log(err)
         }
-        menu_list = menu_display(rows)
-        menu_list.sort(function(a, b) {
-            return b[1] - a[1];
-        });
+        // menu_list = menu_display(rows)
+        // menu_list.sort(function(a, b) {
+        //     return b[1] - a[1];
+        // });
         // const unicornio = rows.filter((row) => (row.amigurumi === 'Unicórnio'))
-        res.render("nini-menu.html", {menu_list: menu_list})
+
+
+
+
+        
+        console.log(rows)
+        res.render("nini-menu.html", {amigurumis: rows})
     })
 })
+server.post("/adicionarmenu", (req, res) => {
+    const query = `
+    INSERT INTO amigurumis (
+        amigurumi,
+        imagem
+    ) VALUES (?,?);
+    `
+    const values = [
+        req.body.amigurumi,
+        req.body.imagem
+    ]
 
+    function afterInsertData(err){
+        if(err){
+            return console.log(err)
+        }
+        
+        return res.redirect('/')
+    }
+
+    db.run(query, values, afterInsertData)
+})
+server.post("/deletarmenu", (req, res) => {
+    db.run(`DELETE FROM amigurumis WHERE id=?`, [req.body.id], function(err){
+        if(err){
+            return console.log(err)
+        }
+    })
+    console.log(req.body.id)
+    return res.redirect("/")
+})
 
 server.get("/nini-contador", (req, res) => {
     return res.render("nini-contador.html")
@@ -73,7 +109,7 @@ server.get("/nini-encomendas", (req, res) => {
     })
 })
 
-server.post("/anha", (req, res) =>{
+server.post("/adicionar", (req, res) =>{
     
     // inserir dados
     const query = `
@@ -102,7 +138,7 @@ server.post("/anha", (req, res) =>{
     db.run(query, values, afterInsertData)
 })
 
-server.post("/anhanha", (req, res)=>{
+server.post("/deletar", (req, res)=>{
     db.run(`DELETE FROM historico WHERE id=?`, [req.body.id], function(err){
         if(err){
             return console.log(err)

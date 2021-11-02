@@ -35,7 +35,7 @@
                     <p id='titulo'>Encomendas</p>
                     <hr />
                     <div id='caixas'>
-                        <form id='add' action='/anha' method='POST'>
+                        <form id='add' action='/adicionar' method='POST'>
                             <div class ='form-box'>
                                 <p class='titulo'>Nome: </p>
                                 <input id='nome' type="text" name ='nome' required> 
@@ -65,7 +65,7 @@
                                 <p>{{item.preco}}</p>
                                 <p class ='titulo'>Data:</p>
                                 <p>{{item.data}}</p>
-                                <form action = '/anhanha' method='POST'>
+                                <form action = '/deletar' method='POST'>
                                     <button name='id' type='submit' value='{{item.id}}'><img src="\assets\x2.png"></button>
                                 </form>
                             </div>

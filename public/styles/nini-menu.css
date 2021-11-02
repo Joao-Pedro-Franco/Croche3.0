@@ -31,6 +31,7 @@ body, html{
 
 header{
     position:fixed;
+    z-index: 2;
     height:100px;
     width:100vw;
     background-color: rgb(209, 243, 253);
@@ -87,6 +88,7 @@ main::-webkit-scrollbar-track-piece:start{
     transition: 400ms;
     display:flex;
     position:fixed;
+    z-index: 3;
     left:0;
     justify-content: center;
 }
@@ -145,19 +147,27 @@ main::-webkit-scrollbar-track-piece:start{
     width:80%;
     margin: 50px auto 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    transition: 200ms;
+    box-sizing: border-box;
 }
 #content #caixa-menu{
     width: 180px;
     height:180px;
-    margin-top: 20px;
+    margin-bottom: 30px;
     display:flex;
     flex-direction: column;
-    
+    background-color: #fc6065;
+    justify-content: space-between;
+    position:relative;
+    z-index: 1;
+    transition: 200ms;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.541);
 }
 #content #caixa-menu #img{
     height: 130px;
-    background-image: url('/assets/abelinha.png');
+
     background-size: cover;
     background-position: center;
 }
@@ -168,4 +178,53 @@ main::-webkit-scrollbar-track-piece:start{
     align-items: center;
     height:50px;
     color:white;
+}
+#content #caixas-menu #caixa-menu #deleteform{
+    position: absolute;
+    width: inherit;
+    display: flex;
+    flex-direction:row-reverse;
+}
+#content #caixas-menu #caixa-menu #deleteform button{
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0);
+    border:none;
+    cursor: pointer;
+    margin: 3px 3px 0 0;
+}
+#content #caixas-menu #caixa-menu #deleteform button img{
+    height:15px;
+}
+#content #caixas-menu #caixa-menu #addform{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    color:white;
+    font-weight: 600;
+}
+#content #caixas-menu #caixa-menu #addform button{
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0);
+    border:none;
+    cursor: pointer;
+}
+#content #caixas-menu #addform #imagem, #amigurumi{
+    margin: 0 5px 0 5px;
+    height:20px;
+    width: 110px;
+    background-color: #fff6f6;
+    border:2px solid #bb484c;
+    border-radius: 6px;
+    text-align: center;
+    color:rgb(105, 105, 105);
+    font-weight: 600;
+}
+#content #caixas-menu #addform input:focus{
+    outline:none;
+}
+#content #caixa-menu button img{
+    height: 26px;
+    transition: 200ms;
 }
