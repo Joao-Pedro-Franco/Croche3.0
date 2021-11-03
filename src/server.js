@@ -58,8 +58,7 @@ server.get("/", (req, res) => {
 
 
 
-        
-        console.log(rows)
+
         res.render("nini-menu.html", {amigurumis: rows})
     })
 })
