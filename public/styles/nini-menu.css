@@ -49,21 +49,21 @@ header a{
 header #a-nav img{
     margin: 0 140px 0 110px;
     height:30px;
-    transition:300ms;
+    transition:200ms;
 }
 header #a-nav img:hover{
     height:35px;
 }
 header #a-logo img{
     height:50px;
-    transition:300ms;
+    transition:200ms;
 }
 header #a-logo img:hover{
     height:60px;
 }
 header #a-logo p{
     margin-left:20px;
-    transition: 400ms;
+    transition: 200ms;
 }
 header #a-logo:hover{
     font-size:19pt;
@@ -193,7 +193,7 @@ main::-webkit-scrollbar-track-piece:start{
     margin: 3px 3px 0 0;
 }
 #content #caixas-menu #caixa-menu #deleteform button img{
-    height:15px;
+    height:12px;
 }
 #content #caixas-menu #caixa-menu #addform{
     display: flex;

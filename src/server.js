@@ -13,55 +13,63 @@ nunjucks.configure("src/views", {
     express: server,
     noCache: true
 })
-function menu_display(rows){
-    var menu_list = []
-    var amigurumis = []
-    
-    for(let i = 0; i < rows.length; i++){
-       amigurumis.push(rows[i].amigurumi)
-    }
 
-    for(let i = 0; i < amigurumis.length; i++){
+function create_list(rows, rows2){
+    const final_list = []
 
+    for(i = 0; i<rows.length; i++){
         let verify = false
-        if(i === 0){
-            menu_list.push([amigurumis[0], 1])
+        for(r = 0; r<rows2.length; r++){
+            if(rows[i].amigurumi === rows2[r].amigurumi){
+                final_list.push({card: rows[i], cont: rows2[r].cont})
+                verify = true
+                break
+            }
         }
-        else{
-            for(let r = 0; r < menu_list.length; r++){
-                if(menu_list[r][0] === amigurumis[i]){
-                    menu_list[r][1]++;
-                    verify = true
-                    break
-                }
-            }
-            if(verify === false){
-                menu_list.push([amigurumis[i], 1])
-            }
+        if(verify === false){
+            final_list.push({card: rows[i], cont: 0})
         }
     }
-    return menu_list
+    return final_list
 }
 
-
 server.get("/", (req, res) => {
+
     db.all(`SELECT * FROM amigurumis`, function(err, rows){
         if (err){
             return console.log(err)
         }
-        // menu_list = menu_display(rows)
-        // menu_list.sort(function(a, b) {
-        //     return b[1] - a[1];
-        // });
-        // const unicornio = rows.filter((row) => (row.amigurumi === 'Unicórnio'))
-
-
-
-
-
-        res.render("nini-menu.html", {amigurumis: rows})
+        db.all(`SELECT amigurumi, COUNT(*) AS cont FROM historico GROUP BY amigurumi ORDER BY 2 DESC`, function(err, rows2){
+            if (err){
+                return console.log(err)
+            }
+            
+            final = create_list(rows, rows2)
+            final.sort(function(a, b) {
+                if (a.card.amigurumi > b.card.amigurumi) {
+                    return 1;
+                  }
+                  if (a.card.amigurumi < b.card.amigurumi) {
+                    return -1;
+                  }
+                  // a must be equal to b
+                  return 0;
+            });
+            final.sort(function(a, b) {
+                if (a.cont > b.cont) {
+                    return -1;
+                  }
+                  if (a.cont < b.cont) {
+                    return 1;
+                  }
+                  // a must be equal to b
+                  return 0;
+            });
+            res.render("nini-menu.html", {amigurumi_list: rows, final})
+        })
     })
 })
+
 server.post("/adicionarmenu", (req, res) => {
     const query = `
     INSERT INTO amigurumis (

@@ -11,7 +11,7 @@
         <header>
             <a href="#" id='a-nav'><img src="\assets\burger.png">
             </a>
-            <a href='#' id='a-logo'>
+            <a href='/' id='a-logo'>
                 <img src='\assets\logo.png'>
                 <p>Lojinha da Nickk</p>
             </a>
@@ -34,14 +34,15 @@
             </nav>
             <div id='content'>
                 <div id='caixas-menu'>
-                    {% for item in amigurumis %}
+                    {% for item in final %}
                         <div id='caixa-menu'>
-                            <div id='img' style="background-image: url({{ item.imagem }});"></div>
+                            <div id='img' style="background-image: url({{ item.card.imagem }});"></div>
                             <form id ='deleteform' action="/deletarmenu" method='POST'>
-                                <button name='id' type='submit' value='{{item.id}}'><img src="\assets\x2.png"></button>
+                                <button name='id' type='submit' value='{{item.card.id}}'><img src="\assets\x.png"></button>
                             </form>
                             <div id='info'>
-                                <p>{{ item.amigurumi }}</p>
+                                <p>{{ item.card.amigurumi }}</p>
+                                <p>{{ item.cont}}</p>
                             </div>
                         </div>
                     {% endfor %}
