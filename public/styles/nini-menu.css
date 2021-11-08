@@ -48,7 +48,6 @@ header div{
     align-items: center;
 }
 header #socials{
-    display:flex;
     justify-content: space-around;
     margin-right: 50px;
     width: 200px;
