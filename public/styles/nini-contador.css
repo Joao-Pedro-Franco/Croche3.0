@@ -10,18 +10,18 @@
     width: 500px;
     height: 400px;
     margin: 100px auto 0px auto;
-    background-color: #fde7e8;
+    background-color: var(--content-color1);
     border-radius: 15px;
-    box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.37);
-    color:rgb(105, 105, 105);
+    box-shadow: 2px 2px 4px var(--shadow-color);
+    color:var(--text-color);
 }
 #contador #relogio{
     text-align: center;
     font-size: 50pt;
-    background-color: #fde7e8;
+    background-color: var(--content-color1);
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
-    border-bottom: 2px solid #fc60659d;
+    border-bottom: 2px solid var(--hr-color);
     height: 130px;
     width: 500px;
     display:flex;
@@ -63,13 +63,13 @@
     height:50%;
     background-color: rgba(255, 161, 232, 0);
     border: 0px solid rgba(255, 161, 232, 0);
-    border-left: 2px solid #fc60659d;
+    border-left: 2px solid var(--hr-color);
     cursor:pointer;
     font-size: 15pt;
-    color:rgb(105, 105, 105);
+    color:var(--text-color);
 }
 #contador #interface #botoes input[value = '+']{
-    border-bottom: 2px solid #fc60659d;
+    border-bottom: 2px solid var(--hr-color);
     
 }
 #contador #interface #botoes input:focus{
