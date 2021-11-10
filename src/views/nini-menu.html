@@ -19,12 +19,16 @@
                     <p>Lojinha da Nickk</p>
                 </a>
             </div>
-            <div id = 'socials'>
-                <a href="https://www.instagram.com/lojinha_da_nickk/"target="_blank"><img src="\assets\instagram.png" alt=""></a>
-                <a href="https://twitter.com/lojinhadanickk"target="_blank"><img src="\assets\twitter.png" alt=""></a>
-                <a href="https://www.twitch.tv/choconiih"target="_blank"><img src="\assets\twitch.png" alt=""></a>
-                <a href="https://www.tiktok.com/@choconiih?"target="_blank"><img src="\assets\tiktok.png" alt=""></a>
-                <a href="https://shopee.com.br/lojinhadanickk?categoryId=23291&itemId=8768079112"target="_blank"><img src="\assets\shopee.png" alt=""></a>
+            <div id='socials'>
+                <a href="https://www.instagram.com/lojinha_da_nickk/" target="_blank"><img src="\assets\instagram.png" alt=""> </a>
+                <a href="https://twitter.com/lojinhadanickk" target="_blank"><img src="\assets\twitter.png" alt=""> </a>
+                <a href="https://www.twitch.tv/choconiih" target="_blank"><img src="\assets\twitch.png" alt=""> </a>
+                <a href="https://www.tiktok.com/@choconiih?" target="_blank"><img src="\assets\tiktok.png" alt=""> </a>
+                <a href="https://shopee.com.br/lojinhadanickk?categoryId=23291&itemId=8768079112" target="_blank"><img src="\assets\shopee.png" alt=""> </a>
+                <label class="switch">
+                    <input type="checkbox" id='themeButton'>
+                    <span class="slider round"></span>
+                </label>
             </div>
         </header>
         <main id="main">
@@ -48,22 +52,23 @@
                     {% for item in final %}
                         <div id='caixa-menu'>
                             <div id='img' style="background-image: url({{ item.card.imagem }});"></div>
-                            <form id ='deleteform' action="/deletarmenu" method='POST'>
-                                <button name='id' type='submit' value='{{item.card.id}}'><img src="\assets\x.png"></button>
+                            <form id='deleteform' action="/deletarmenu" method='POST'>
+                                <button name='id' type='submit' value='{{ item.card.id }}'><img src="\assets\x.png"> </button>
                             </form>
                             <div id='info'>
                                 <p>{{ item.card.amigurumi }}</p>
-                                <p>{{ item.cont}}</p>
+                                <p>{{ item.cont }}</p>
                             </div>
                         </div>
                     {% endfor %}
                     <div id='caixa-menu'>
-                        <form id ='addform' action="/adicionarmenu" method='POST'>
+                        <form id='addform' action="/adicionarmenu" method='POST'>
                             <p>Amigurumi:</p>
                             <input type="text" id='amigurumi' name='amigurumi' required>
                             <p>URL:</p>
                             <input type="text" id='imagem' name='imagem' required>
-                            <button type='submit'><img src="\assets\+.png" alt=""> </button>
+                            <button type='submit'><img src="\assets\+.png" alt="">
+                            </button>
                         </form>
                     </div>
                 </div>

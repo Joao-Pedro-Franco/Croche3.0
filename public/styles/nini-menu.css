@@ -33,6 +33,7 @@
 *{
     margin:0;
     padding:0;
+    transition: 400ms;
 }
 
 
@@ -41,7 +42,7 @@ body, html{
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     height:100%;
     width:100%;
-
+    
 }
 
 ::-webkit-scrollbar{
@@ -69,7 +70,7 @@ header{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 0px 5px var(--shadow-color);
+    box-shadow: 0px 1px 5px var(--shadow-color);
     text-decoration: none;
     font-size: 18pt;
     color:var(--text-color);
@@ -81,15 +82,24 @@ header div{
 }
 header #socials{
     justify-content: space-around;
-    margin-right: 50px;
-    width: 200px;
+    margin-right: 40px;
+    width: 320px;
+}
+header #socials a{
+    width: 40px;
+    height:40px;
+    border-radius: 20px;
+    transition: 300ms;
+}
+header #socials a:hover{
+    background-color: rgba(102, 102, 102, 0.26);
+
+}
+header #socials a:active{
+    background-color: rgba(104, 104, 104, 0.521)
 }
 header #socials img{
     width:30px;
-    transition: 200ms;
-}
-header #socials img:hover{
-    width:35px;
 }
 header div a{
     display:flex;
@@ -103,7 +113,6 @@ header #a-nav{
     width: 250px;
 }
 header #a-nav img{
-
     height:30px;
     transition:200ms;
 }
@@ -124,7 +133,61 @@ header #a-logo p{
 header #a-logo:hover{
     font-size:19pt;
 }
-
+.switch {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    width: 50px;
+    height: 26px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #1a1a1a;
+}  
+input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
 
 
 main{
@@ -140,7 +203,7 @@ main::-webkit-scrollbar-track-piece:start{
     height:100vh;
     width: 230px;
     background-color: var(--nav-color);
-    box-shadow: 0px 21px 5px var(--shadow-color);
+    box-shadow: 2px 20px 5px var(--shadow-color);
     transition: 400ms;
     display:flex;
     position:fixed;

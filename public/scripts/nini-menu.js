@@ -1,13 +1,44 @@
 const openNav = document.querySelector("#a-nav")
 const sideNav = document.querySelector("#nav-bar")
-const navMenu = document.querySelector("#nav-menu")
-const navCont = document.querySelector("#nav-contador")
+const themeButton = document.querySelector("#themeButton")
+const cssRoot = document.documentElement.style
 
 const content = document.querySelector("#content")
 
-
-
 let nav_bar = false;
+let theme = false;
+
+main_theme = `
+--nav-color: rgb(209, 243, 253);
+--background-color: rgb(250, 255, 212);
+--content-color1: #fde7e8;
+--content-color2: #fc6065;
+--hr-color: rgba(255, 68, 68, 0.37);
+--border-color: #bb484c;
+--text-color: rgb(105, 105, 105);
+--shadow-color: rgba(128, 128, 128, 0.37);
+`
+dark_theme = `
+--nav-color: rgb(59, 59, 59);
+--background-color: rgb(204, 204, 204);
+--content-color1: #a0a0a0;
+--content-color2: #474747;
+--hr-color: rgba(0, 0, 0, 0.37);
+--border-color: #222222;
+--text-color: rgb(255, 255, 255);
+--shadow-color: rgba(0, 0, 0, 0.705);
+`
+night_theme = `
+--nav-color: rgb(0, 22, 65);
+--background-color: rgb(92, 86, 52);
+--content-color1: #8a494c;
+--content-color2: #6b0004;
+--hr-color: rgba(255, 55, 55, 0.37);
+--border-color: #3f0002;
+--text-color: rgb(255, 255, 255);
+--shadow-color: rgba(0, 0, 0, 0.37);
+`
+
 
 openNav.addEventListener('click', function(){
     if(nav_bar == false){
@@ -23,3 +54,13 @@ openNav.addEventListener('click', function(){
 })
 
 
+themeButton.addEventListener('click', () => {
+    if(theme == false){
+        const cssRoot = document.documentElement.style.cssText = dark_theme
+        theme = true
+    }
+    else{
+        const cssRoot = document.documentElement.style.cssText = main_theme
+        theme = false
+    }
+})
