@@ -22,7 +22,7 @@ dark_theme = `
 --nav-color: rgb(59, 59, 59);
 --background-color: rgb(19, 19, 19);
 --content-color1: rgb(59, 59, 59);
---content-color2: #474747;
+--content-color2: #535353;
 --hr-color: rgba(0, 0, 0, 0.37);
 --border-color: #222222;
 --text-color: rgb(255, 255, 255);
@@ -30,13 +30,13 @@ dark_theme = `
 `
 
 
-openNav.addEventListener('click', function(){
-    if(nav_bar == false){
+openNav.addEventListener('click', function () {
+    if (nav_bar == false) {
         sideNav.classList.add("active");
         content.classList.add("active");
         nav_bar = true;
     }
-    else{
+    else {
         sideNav.classList.remove("active");
         content.classList.remove("active");
         nav_bar = false;
@@ -45,11 +45,11 @@ openNav.addEventListener('click', function(){
 
 
 themeButton.addEventListener('click', () => {
-    if(theme == false){
+    if (theme == false) {
         const cssRoot = document.documentElement.style.cssText = dark_theme
         theme = true
     }
-    else{
+    else {
         const cssRoot = document.documentElement.style.cssText = main_theme
         theme = false
     }
