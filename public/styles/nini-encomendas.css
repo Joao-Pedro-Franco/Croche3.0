@@ -58,7 +58,7 @@
     margin: 0 5px 0 5px;
     height:20px;
     width: 110px;
-    background-color: white;
+    background-color: var(--content-color1);
     border:2px solid var(--border-color);
     border-radius: 6px;
     text-align: center;
